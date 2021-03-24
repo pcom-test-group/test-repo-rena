@@ -6,5 +6,6 @@
             "email": "stephan.vock@gmail.com"
         }
     ],
-    "require": {}
+    "require": {},
+    "abandoned": "psr/log"
 }
