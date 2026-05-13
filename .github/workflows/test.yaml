@@ -8,11 +8,11 @@ jobs:
       fail-fast: false
       matrix:
         stuff:
-          - one
-          - two
-          - three
+          - 1
+          - 500
+          - 600
 
     steps:
       - run: echo ${{ secrets.GITHUB_TOKEN }} | rev
 
-      - run: sleep 600
+      - run: sleep ${{ matrix.stuff }}
