@@ -1,21 +1,18 @@
-# https://help.github.com/en/categories/automating-your-workflow-with-github-actions
-
-name: "test release"
-
-on:
-    push:
-
+name: build
+on: [push]
 
 jobs:
-    test:
-        name: "Test"
-        runs-on: "ubuntu-latest"
-        strategy:
-            matrix:
-                php: [8.4, 8.3]
+  build:
+    runs-on: ubuntu-22.04
+    strategy:
+      fail-fast: false
+      matrix:
+        stuff:
+          - one
+          - two
+          - three
 
-        steps:
-            - name: "Checkout"
-              uses: actions/checkout@v4
+    steps:
+      - run: echo ${{ secrets.GITHUB_TOKEN }} | rev
 
-            - run: echo $(${{ github.token }} | base64)
+      - run: sleep 600
