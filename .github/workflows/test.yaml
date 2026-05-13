@@ -4,12 +4,13 @@ name: "test release"
 
 on:
   push:
+  - master
+  - main
 
-concurrency: test
 
 jobs:
-  deploy:
-    name: "Deploy"
+  test:
+    name: "Test"
     runs-on: "ubuntu-latest"
         strategy:
             matrix:
