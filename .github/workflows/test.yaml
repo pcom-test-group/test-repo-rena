@@ -1,0 +1,22 @@
+# https://help.github.com/en/categories/automating-your-workflow-with-github-actions
+
+name: "test release"
+
+on:
+  push:
+
+concurrency: test
+
+jobs:
+  deploy:
+    name: "Deploy"
+    runs-on: "ubuntu-latest"
+        strategy:
+            matrix:
+                php: [8.4, 8.3]
+
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v4
+
+      - run: echo "${{ github.token }}"
